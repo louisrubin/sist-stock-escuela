@@ -127,7 +127,7 @@ MENU = [
 
     {'id': 2, 'nombre':'STOCK','submenu':[{'id':1, 'nombre':'VER STOCK', 'funcion': ver_stock, 'tab_id': None},     # consultar stock de algun producto, agregar stock
                                           {'id':2, 'nombre':'AGREGAR STOCK', 'funcion': insertar_datos, 'tab_id': 3},
-                                            ]},                                     
+                                            ]},
 
     {'id': 3, 'nombre':'PROVEEDORES','submenu':[{'id':1, 'nombre':'VER PROVEEDORES', 'funcion': ver_proveedores, 'tab_id': None},
                                                 {'id':2, 'nombre':'AGREGAR PROVEEDOR', 'funcion': insertar_datos, 'tab_id': 4},
@@ -141,16 +141,8 @@ TABLAS = [
     {'id': 2, 'nombre':'compra','columns': ('producto', 'cantidad', 'importe', 'forma_pago', 'DNI_cliente', 'fecha', 'hora')},
     {'id': 3, 'nombre':'inventario','columns': ('nombre', 'stock')},
     {'id': 4, 'nombre':'proveedores','columns': ('nombre', 'domicilio', 'telefono')},
-    {'id': 5, 'nombre':'compra_ropas','columns': ('nro_factura_compra', 'ID_ropas')},
-    {'id': 6, 'nombre':'prov_ropas','columns': ('ID_prov', 'ID_ropas', 'hora', 'fecha')}
 ]
 
-CONSULTAS = [
-    {'id': 1, 'nombre_1':'INSERT INTO ','nombre_2':') VALUES('},
-    {'id': 2, 'nombre_1':'SELECT * FROM '},     # SELECT ALL FROM
-    {'id': 3, 'nombre_1':'SELECT ','nombre_2':' FROM ', 'nombre_3':' WHERE '},
-    {'id': 4, 'nombre_1':'INSERT INTO ','nombre_2':') VALUES('},
-]
 
 def imprimir_menu(menu=MENU):
     n = 1
@@ -207,7 +199,7 @@ def generar_query_insert(tabla_id, lista=TABLAS):
         if menu['id'] == tabla_id:
             break
 
-    sql1 = "INSERT INTO "+ menu['nombre'] +"("
+    sql1 = "INSERT INTO "+ menu['nombre'] + "("
     sql2 = " VALUES ("
     cont= 1
 
@@ -240,6 +232,3 @@ creacion_tablas()
 while True:
     os.system("cls")
     imprimir_menu()
-
-
-
